@@ -19,6 +19,7 @@ func main() {
 	sh := new(socketHandler.SocketHandler)
 	sh.Init(":"+fmt.Sprint(port), "tcp")
 
+	fmt.Println("Listening on port " + fmt.Sprint(port))
 	reader := bufio.NewReader(os.Stdin)
 	reader.ReadString('\n')
 
