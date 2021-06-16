@@ -16,7 +16,7 @@ type ServiceAdvertiser struct {
 	server      *mdns.Server
 }
 
-func (sa *ServiceAdvertiser) Init() {
+func (sa *ServiceAdvertiser) Init(port int) {
 	// Set up our service export
 	sa.Host, _ = os.Hostname()
 	sa.Info = []string{}
@@ -27,7 +27,7 @@ func (sa *ServiceAdvertiser) Init() {
 		"_sharx._tcp",
 		"local.",
 		"",
-		62335,
+		port,
 		sa.IPAddresses,
 		sa.Info,
 	)
